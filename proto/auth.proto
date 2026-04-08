@@ -1,0 +1,15 @@
+syntax = "proto3";
+package auth;
+
+service AuthService {
+  rpc ValidateToken (TokenRequest) returns (TokenResponse);
+}
+
+message TokenRequest {
+  string jwt = 1;
+}
+
+message TokenResponse {
+  bool is_valid = 1;
+  string user_id = 2;
+}
